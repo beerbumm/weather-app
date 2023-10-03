@@ -1,0 +1,125 @@
+body {
+  background-color: white;
+}
+.weather-container {
+  width: 800px;
+  height: 500px;
+  color: white;
+  background: linear-gradient(to bottom, #1c2546, #9542ad);
+  border-radius: 10px;
+  display: block;
+  justify-content: center;
+  align-items: center;
+  margin: 100px auto 0;
+}
+
+.thunder-icon {
+  font-size: 30px;
+  margin-left: -30px;
+}
+
+.search-input {
+  background: #f9f7fe;
+  border: none;
+  border-radius: 6px;
+  color: rgba(39, 33, 66, 0.4);
+  display: inline-block;
+  font-size: 16px;
+  height: 50px;
+  line-height: 20px;
+  padding: 15px 20px;
+  margin-left: 90px;
+  width: 80%;
+  margin-top: 30px;
+}
+
+.search-btn {
+  width: 80%;
+  border-radius: 10px;
+  color: white;
+  background-color: #9542ad;
+  padding: 10px 10px;
+  border: none;
+  margin-top: 33px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+}
+
+.row {
+  display: flex;
+}
+
+ul {
+  display: block;
+}
+
+li {
+  color: white;
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  font-weight: 100;
+  line-height: 20px;
+  list-style: none;
+  margin-bottom: 5px;
+  margin-left: 20px;
+}
+
+.weather h1 {
+  color: white;
+  font-family: "Poppins", sans-serif;
+  font-size: 38px;
+  font-weight: 600;
+  line-height: 29px;
+  line-height: 48px;
+  margin: 50px 0 5px 50px;
+}
+.weather .temperature {
+  color: white;
+  font-size: 70px;
+  font-weight: 500;
+  line-height: 1;
+  margin-left: 10px;
+}
+
+.current-temp {
+  align-items: center;
+  margin-top: 65px;
+  margin-left: 210px;
+}
+.WeatherForecast {
+  padding-bottom: 50px;
+  text-align: center;
+  padding-top: 60px;
+}
+
+.WeatherForecast .forecast-time {
+  color: white;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  font-weight: 200;
+  line-height: 20px;
+  text-align: center;
+}
+
+.forecast-temperature {
+  font-family: "Poppins", sans-serif;
+  font-weight: 100;
+}
+
+.degree {
+  align-items: center;
+}
+
+strong {
+  padding: 5px 5px;
+}
+
+.cloud-icon {
+  font-size: 40px;
+  margin: 20px;
+}
+
+.sun-icon {
+  font-size: 40px;
+  margin: 20px;
+}
