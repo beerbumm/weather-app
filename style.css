@@ -13,9 +13,9 @@ body {
   margin: 100px auto 0;
 }
 
-.thunder-icon {
-  font-size: 30px;
-  margin-left: -30px;
+#icon {
+  font-size: 20px;
+  margin-left: -70px;
 }
 
 .search-input {
@@ -75,10 +75,10 @@ li {
 }
 .weather .temperature {
   color: white;
-  font-size: 70px;
+  font-size: 65px;
   font-weight: 500;
   line-height: 1;
-  margin-left: 10px;
+  margin-left: 20px;
 }
 
 .current-temp {

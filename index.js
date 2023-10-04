@@ -12,6 +12,7 @@ function city(event) {
 }
 
 function showTemperature(response) {
+  console.log(response.data);
   let temperature = Math.round(response.data.main.temp);
   let city = response.data.name;
   let currentTemp = document.querySelector(".temperature");
@@ -24,6 +25,12 @@ function showTemperature(response) {
   document.querySelector("#wind").innerHTML = Math.round(
     response.data.wind.speed
   );
+
+  let iconCode = response.data.weather[0].icon;
+  let iconUrl = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
+
+  let iconElement = document.querySelector("#icon");
+  iconElement.setAttribute("src", iconUrl);
 }
 
 let form = document.querySelector(".search-form");
