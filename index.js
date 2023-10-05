@@ -3,8 +3,8 @@ function city(event) {
 
   let searchInput = document.querySelector("#search-text-input").value;
 
-  let apiKey = "fe1483f743b581b5520a1b725af03a49";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${searchInput}&appid=${apiKey}&units=imperial`;
+  let apiKey = "b02t1o4abeb6dd3aea6af5f554f10d04";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${searchInput}&key=${apiKey}&units=imperial`;
 
   axios.get(apiUrl).then(function (response) {
     showTemperature(response);
@@ -12,25 +12,19 @@ function city(event) {
 }
 
 function showTemperature(response) {
-  console.log(response.data);
-  let temperature = Math.round(response.data.main.temp);
-  let city = response.data.name;
+  console.log(response);
+  let windElement = document.querySelector("#wind-speed");
+  let humidityElement = document.querySelector("#humidity");
+  let temperature = Math.round(response.data.temperature.current);
+  let city = response.data.city;
   let currentTemp = document.querySelector(".temperature");
   currentTemp.innerHTML = `${temperature}`;
 
   let h1 = document.querySelector("h1");
   h1.innerHTML = city;
 
-  document.querySelector("#humidity").innerHTML = response.data.main.humidity;
-  document.querySelector("#wind").innerHTML = Math.round(
-    response.data.wind.speed
-  );
-
-  let iconCode = response.data.weather[0].icon;
-  let iconUrl = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
-
-  let iconElement = document.querySelector("#icon");
-  iconElement.setAttribute("src", iconUrl);
+  windElement.innerHTML = Math.round(response.data.wind.speed);
+  humidityElement.innerHTML = response.data.temperature.humidity;
 }
 
 let form = document.querySelector(".search-form");

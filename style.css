@@ -123,3 +123,22 @@ strong {
   font-size: 40px;
   margin: 20px;
 }
+
+#humidity {
+  font-weight: bolder;
+}
+
+#wind-speed {
+  font-weight: bolder;
+}
+#percent {
+  font-weight: bolder;
+}
+
+#mph {
+  font-weight: bolder;
+}
+
+#wind {
+  margin-left: 5px;
+}
