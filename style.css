@@ -13,11 +13,6 @@ body {
   margin: 100px auto 0;
 }
 
-#icon {
-  font-size: 20px;
-  margin-left: -70px;
-}
-
 .search-input {
   background: #f9f7fe;
   border: none;
@@ -122,6 +117,13 @@ strong {
 .sun-icon {
   font-size: 40px;
   margin: 20px;
+}
+
+#icon {
+  margin-left: 900 px;
+  margin-top: 13px;
+  position: absolute;
+  left: 0;
 }
 
 #humidity {
