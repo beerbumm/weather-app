@@ -153,6 +153,20 @@ strong {
   font-weight: bolder;
 }
 
+#fahrenheit-link {
+  text-decoration: none;
+  color: white;
+}
+
+#celsius-link {
+  text-decoration: none;
+  color: white;
+}
+
+#github-link {
+  text-decoration: none;
+}
+
 small {
   margin-left: 10px;
 }
