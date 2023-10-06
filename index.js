@@ -24,6 +24,8 @@ function showTemperature(response) {
   let h1 = document.querySelector("h1");
   h1.innerHTML = city;
 
+  fahrenheitTemperature = response.data.temperature.current;
+
   iconElement.setAttribute(
     "src",
     `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
@@ -32,5 +34,17 @@ function showTemperature(response) {
   humidityElement.innerHTML = response.data.temperature.humidity;
 }
 
+function showCelsiusTemperature(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector(".temperature");
+  let celsiusTemperature = ((fahrenheitTemperature - 32) * 5) / 9;
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
+
+let fahrenheitTemperature = null;
+
 let form = document.querySelector(".search-form");
 form.addEventListener("submit", city);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", showCelsiusTemperature);
