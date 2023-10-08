@@ -13,6 +13,7 @@ function city(event) {
 
 function showTemperature(response) {
   console.log(response.data);
+  let currentTime = document.querySelector("#time");
   let iconElement = document.querySelector("#icon");
   let windElement = document.querySelector("#wind-speed");
   let humidityElement = document.querySelector("#humidity");
@@ -20,9 +21,20 @@ function showTemperature(response) {
   let city = response.data.city;
   let currentTemp = document.querySelector(".temperature");
   currentTemp.innerHTML = `${temperature}`;
+  let unixTimestamp = response.data.time;
+  let date = new Date(unixTimestamp * 1000);
+
+  console.log(date);
 
   let h1 = document.querySelector("h1");
   h1.innerHTML = city;
+  let hours = date.getHours();
+  let minutes = date.getMinutes();
+
+  hours = hours < 10 ? "0" + hours : hours;
+  minutes = minutes < 10 ? "0" + minutes : minutes;
+
+  currentTime.innerHTML = `${hours}:${minutes}`;
 
   fahrenheitTemperature = response.data.temperature.current;
 
