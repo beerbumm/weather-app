@@ -139,10 +139,12 @@ strong {
 }
 #percent {
   font-weight: bolder;
+  margin-left: 3px;
 }
 
 #mph {
   font-weight: bolder;
+  margin-left: 3px;
 }
 
 #wind {

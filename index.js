@@ -3,8 +3,8 @@ function city(event) {
 
   let searchInput = document.querySelector("#search-text-input").value;
 
-  let apiKey = "b02t1o4abeb6dd3aea6af5f554f10d04";
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${searchInput}&key=${apiKey}&units=imperial`;
+  let apiKey = "5ac70c9d220c7b6695afbf9fb3d15093";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${searchInput}&appid=${apiKey}&units=imperial`;
 
   axios.get(apiUrl).then(function (response) {
     showTemperature(response);
@@ -17,33 +17,22 @@ function showTemperature(response) {
   let iconElement = document.querySelector("#icon");
   let windElement = document.querySelector("#wind-speed");
   let humidityElement = document.querySelector("#humidity");
-  let temperature = Math.round(response.data.temperature.current);
-  let city = response.data.city;
+  let temperature = Math.round(response.data.main.temp);
+  let city = response.data.name;
   let currentTemp = document.querySelector(".temperature");
   currentTemp.innerHTML = `${temperature}`;
-  let unixTimestamp = response.data.time;
-  let date = new Date(unixTimestamp * 1000);
-
-  console.log(date);
 
   let h1 = document.querySelector("h1");
   h1.innerHTML = city;
-  let hours = date.getHours();
-  let minutes = date.getMinutes();
 
-  hours = hours < 10 ? "0" + hours : hours;
-  minutes = minutes < 10 ? "0" + minutes : minutes;
-
-  currentTime.innerHTML = `${hours}:${minutes}`;
-
-  fahrenheitTemperature = response.data.temperature.current;
+  fahrenheitTemperature = response.data.main.temp;
 
   iconElement.setAttribute(
     "src",
-    `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   windElement.innerHTML = Math.round(response.data.wind.speed);
-  humidityElement.innerHTML = response.data.temperature.humidity;
+  humidityElement.innerHTML = response.data.main.humidity;
 }
 
 function showCelsiusTemperature(event) {
