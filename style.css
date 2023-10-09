@@ -124,10 +124,7 @@ strong {
 }
 
 #icon {
-  margin-left: 900 px;
-  margin-top: 13px;
-  position: absolute;
-  left: 0;
+  margin-left: -80px;
 }
 
 #humidity {
@@ -153,6 +150,7 @@ strong {
 
 #time {
   font-weight: bolder;
+  margin-left: 5px;
 }
 
 #fahrenheit-link {

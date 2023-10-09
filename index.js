@@ -1,3 +1,34 @@
+function showCurrentDay(response) {
+  let currentDayElement = document.querySelector("#day");
+  let currentTimeElement = document.querySelector("#time");
+
+  let timezoneOffset = response.data.timezone;
+
+  let localTime = new Date((response.data.dt + timezoneOffset) * 1000);
+
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = days[localTime.getUTCDay()];
+  let hours = localTime.getUTCHours();
+  let minutes = localTime.getUTCMinutes();
+  let ampm = hours >= 12 ? "PM" : "AM";
+
+  hours = hours % 12;
+  hours = hours ? hours : 12;
+
+  currentDayElement.innerHTML = day;
+  currentTimeElement.innerHTML = `${hours}:${
+    minutes < 10 ? "0" : ""
+  }${minutes} ${ampm}`;
+}
+
 function city(event) {
   event.preventDefault();
 
@@ -8,6 +39,7 @@ function city(event) {
 
   axios.get(apiUrl).then(function (response) {
     showTemperature(response);
+    showCurrentDay(response);
   });
 }
 
@@ -27,10 +59,9 @@ function showTemperature(response) {
 
   fahrenheitTemperature = response.data.main.temp;
 
-  iconElement.setAttribute(
-    "src",
-    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
-  );
+  let iconUrl = `http://openweathermap.org/img/wn/${response.data.weather[0].icon}.png`;
+  iconElement.setAttribute("src", iconUrl);
+
   windElement.innerHTML = Math.round(response.data.wind.speed);
   humidityElement.innerHTML = response.data.main.humidity;
 }
