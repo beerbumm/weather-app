@@ -94,13 +94,9 @@ li {
   padding-top: 60px;
 }
 
-.WeatherForecast .forecast-time {
-  color: white;
+.forecast-container {
   font-family: "Poppins", sans-serif;
-  font-size: 16px;
-  font-weight: 200;
-  line-height: 20px;
-  text-align: center;
+  font-weight: 100;
 }
 
 .forecast-temperature {
@@ -171,6 +167,11 @@ strong {
 
 #github-link {
   text-decoration: none;
+  margin-left: 210px;
+}
+
+#forecast {
+  margin-top: 80px;
 }
 
 small {

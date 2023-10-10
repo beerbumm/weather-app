@@ -40,7 +40,43 @@ function city(event) {
   axios.get(apiUrl).then(function (response) {
     showTemperature(response);
     showCurrentDay(response);
+    displayForecast();
   });
+}
+
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let days = ["Thu", "Fri", "Sat", "Sun", "Mon", "Tues"];
+
+  let forecastHTML = `<div class="row justify-content-center text-center">`;
+  days.forEach(function (day) {
+    forecastHTML += `
+      <div class="col-2">
+        <div class="weather-forecast-date">${day}</div>
+        <img
+          src="http://openweathermap.org/img/wn/50d@2x.png"
+          alt=""
+          width="42"
+        />
+        <div class="weather-forecast-temperatures">
+          <span class="forecast-temperature-max"
+            >Hi <strong class="degree">64°</strong></span
+          >
+          <br />
+          <span class="forecast-temperature-min"
+            >Lo <strong class="degree">52°</strong></span
+          >
+        </div>
+      </div>
+      `;
+  });
+
+  forecastHTML += `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+  console.log(forecastHTML);
+
+  forecastElement.classList.add("forecast-container");
 }
 
 function showTemperature(response) {
