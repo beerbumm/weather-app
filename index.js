@@ -34,7 +34,7 @@ function city(event) {
 
   let searchInput = document.querySelector("#search-text-input").value;
 
-  let apiKey = "5ac70c9d220c7b6695afbf9fb3d15093";
+  let apiKey = "9cb72bec958f8fb02391985ed7b219d2";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${searchInput}&appid=${apiKey}&units=imperial`;
 
   axios.get(apiUrl).then(function (response) {
@@ -57,7 +57,7 @@ function displayForecast() {
         <img
           src="http://openweathermap.org/img/wn/50d@2x.png"
           alt=""
-          width="42"
+          width="45"
         />
         <div class="weather-forecast-temperatures">
           <span class="forecast-temperature-max"
@@ -74,9 +74,14 @@ function displayForecast() {
 
   forecastHTML += `</div>`;
   forecastElement.innerHTML = forecastHTML;
-  console.log(forecastHTML);
 
   forecastElement.classList.add("forecast-container");
+}
+
+function getForecast(coordinates) {
+  let apiKey = "9cb72bec958f8fb02391985ed7b219d2";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=imperial`;
+  console.log(apiUrl);
 }
 
 function showTemperature(response) {
@@ -97,6 +102,8 @@ function showTemperature(response) {
 
   let iconUrl = `http://openweathermap.org/img/wn/${response.data.weather[0].icon}.png`;
   iconElement.setAttribute("src", iconUrl);
+
+  getForecast(response.data.coord);
 
   windElement.innerHTML = Math.round(response.data.wind.speed);
   humidityElement.innerHTML = response.data.main.humidity;
