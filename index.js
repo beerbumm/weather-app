@@ -40,11 +40,11 @@ function city(event) {
   axios.get(apiUrl).then(function (response) {
     showTemperature(response);
     showCurrentDay(response);
-    displayForecast();
   });
 }
 
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
   let forecastElement = document.querySelector("#forecast");
 
   let days = ["Thu", "Fri", "Sat", "Sun", "Mon", "Tues"];
@@ -81,7 +81,7 @@ function displayForecast() {
 function getForecast(coordinates) {
   let apiKey = "9cb72bec958f8fb02391985ed7b219d2";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=imperial`;
-  console.log(apiUrl);
+  axios.get(apiUrl).then(displayForecast);
 }
 
 function showTemperature(response) {
