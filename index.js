@@ -66,17 +66,16 @@ function displayForecast(response) {
             forecastDay.weather[0].icon
           }@2x.png"
           alt=""
-          width="45"
+          width="55"
         />
         <div class="weather-forecast-temperatures">
           <span class="forecast-temperature-max"
-            >Hi <strong class="degree"> ${Math.round(
+            ><strong class="degree"> ${Math.round(
               forecastDay.temp.max
             )}°</strong></span
           >
-          <br />
           <span class="forecast-temperature-min"
-            >Lo <strong class="degree">${Math.round(
+            ><strong class="degree-min">${Math.round(
               forecastDay.temp.min
             )}°</strong></span
           >
@@ -122,21 +121,6 @@ function showTemperature(response) {
   windElement.innerHTML = Math.round(response.data.wind.speed);
   humidityElement.innerHTML = response.data.main.humidity;
 }
-
-function showCelsiusTemperature(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector(".temperature");
-  let celsiusTemperature = ((fahrenheitTemperature - 32) * 5) / 9;
-  temperatureElement.innerHTML = Math.round(celsiusTemperature);
-}
-
-function showFahrenheitTemperature(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector(".temperature");
-  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
-}
-
-let fahrenheitTemperature = null;
 
 let form = document.querySelector(".search-form");
 form.addEventListener("submit", city);
